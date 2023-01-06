@@ -1,0 +1,61 @@
+<section class="p-5 bg-light">
+  <div class="container">
+      <div class="row m-5">
+          <div class="col-lg-6">
+              <div class="border border-primary p-3 rounded">
+                  <h3 class="text-center"> register page </h3> <hr/>
+                  <form [formGroup]="registerform" (ngSubmit)="onSubmit()">
+                      <div class="mb-2">
+                          <div class="form-group">
+                              <label for="FirstName" class="form-label">Enter Your Name <span>*</span></label>
+                              <input type="text" placeholder="Enter Your Name" formControlName="FirstName" class="form-control" id="FirstName"
+                                  [ngClass]="{ 'is-invalid': submitted && f['FirstName'].errors }"
+                                  aria-describedby="FirstName">
+                              <div *ngIf="submitted && f['FirstName'].errors" class="invalid-feedback">
+                                  <div *ngIf="f['FirstName'].errors['required']">Name is required</div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="mb-2">
+                          <div class="form-group">
+                              <label for="exampleInputEmail1" class="form-label">Email
+                                  address<span>*</span></label>
+                              <input type="email" placeholder="Enter Your Email" formControlName="email" class="form-control"
+                                  [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" id="exampleInputEmail1"
+                                  aria-describedby="emailHelp">
+                              <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                  <div *ngIf="f['email'].errors['required']">Email is required</div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="mb-2">
+                          <div class="form-group">
+                              <label for="Mobile" class="form-label">Mobile Number<span>*</span></label>
+                              <input type="number" placeholder="Enter Your Mobile Number" formControlName="Mobile" class="form-control"
+                                  [ngClass]="{ 'is-invalid': submitted && f['Mobile'].errors }" id="Mobile"
+                                  aria-describedby="Mobile">
+                              <div *ngIf="submitted && f['Mobile'].errors" class="invalid-feedback">
+                                  <div *ngIf="f['Mobile'].errors['required']">Mobile is required</div>
+                                  <div *ngIf="f['Mobile'].errors['pattern']">Please, Enter 10 digit Mobile Number.
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="mb-2">
+                          <div class="form-group">
+                              <label for="textarea" class="form-label">Send Message<span>*</span></label>
+                              <textarea placeholder="Enter Your Message" formControlName="textarea" class="form-control"
+                                  [ngClass]="{ 'is-invalid': submitted && f['textarea'].errors }"
+                                  id="textarea"></textarea>
+                              <div *ngIf="submitted && f['textarea'].errors" class="invalid-feedback">
+                                  <div *ngIf="f['textarea'].errors['required']">Message is required</div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="text-center mt-3">
+                          <button type="submit" class="btn btn-success submit">
+                              <i class="fa fa-envelope text-warning"> </i> Send Message </button>
+                      </div>
+                  </form>
+              </div>
+          </div>
